@@ -14,12 +14,13 @@ public class Ventas implements IFacturaService {
     private FacturaRepository facturaRepository;
 
     @Override
-    public List<Factura> findFacturasByPersona(Integer idCliente) {
+    public List<Factura> findFacturasByPersona(Long idCliente) {
         return facturaRepository.findByIdCliente(idCliente);
     }
 
     @Override
     public Factura storeFactura(Factura factura) {
-        return facturaRepository.save(factura);
+        System.out.println(factura.toString());
+        return facturaRepository.storeFactura(factura.getFecha(), factura.getMonto(), factura.getIdCliente().getId());
     }
 }

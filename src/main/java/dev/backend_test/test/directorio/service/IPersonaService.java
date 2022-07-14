@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IPersonaService {
 
-    Persona findPersonaByIdentificacion(Integer identificacion);
+    Persona findPersonaByIdentificacion(Long identificacion);
 
     List<Persona> findPersonas();
 
-    void deletePersonaByIdentificacion(Integer identificacion);
+    void deletePersonaByIdentificacion(Long identificacion);
 
     Persona storePersona(Persona persona);
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import dev.backend_test.test.directorio.model.Persona;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -11,10 +12,11 @@ import java.util.Date;
 public class Factura {
 
     @Id
+    @Column(columnDefinition = "serial")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private Date fecha;
+    private LocalDate fecha;
 
     private Integer monto;
 
@@ -25,7 +27,7 @@ public class Factura {
     public Factura() {
     }
 
-    public Factura(int id, Date fecha, Integer monto, Persona idCliente) {
+    public Factura(Long id, LocalDate fecha, Integer monto, Persona idCliente) {
         super();
         this.id = id;
         this.fecha = fecha;
@@ -33,19 +35,19 @@ public class Factura {
         this.idCliente = idCliente;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -63,5 +65,15 @@ public class Factura {
 
     public void setIdCliente(Persona idCliente) {
         this.idCliente = idCliente;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "id=" + id +
+                ", fecha=" + fecha +
+                ", monto=" + monto +
+                ", idCliente=" + idCliente +
+                '}';
     }
 }

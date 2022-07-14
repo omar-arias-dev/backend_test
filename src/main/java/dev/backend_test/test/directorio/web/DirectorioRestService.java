@@ -17,7 +17,7 @@ public class DirectorioRestService {
     private Directorio directorio;
 
     @GetMapping("/find-by-identificacion/{identificacion}")
-    public ResponseEntity<Persona> findPersonaByIdentificacion(@PathVariable("identificacion") Integer identificacion) {
+    public ResponseEntity<Persona> findPersonaByIdentificacion(@PathVariable("identificacion") Long identificacion) {
         return new ResponseEntity<>(directorio.findPersonaByIdentificacion(identificacion), HttpStatus.OK);
     }
 
@@ -27,7 +27,7 @@ public class DirectorioRestService {
     }
 
     @DeleteMapping("/delete-by-identificacion/{identificacion}")
-    public void deletePersonaByIdentificacion(@PathVariable("identificacion") Integer identificacion) {
+    public void deletePersonaByIdentificacion(@PathVariable("identificacion") Long identificacion) {
         directorio.deletePersonaByIdentificacion(identificacion);
     }
 

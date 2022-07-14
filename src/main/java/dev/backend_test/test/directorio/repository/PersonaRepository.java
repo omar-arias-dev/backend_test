@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface PersonaRepository extends JpaRepository<Persona, Integer> {
 
     @Query(value = "DELETE FROM personas p where p.identificacion=:identificacion", nativeQuery = true)
-    void deleteByIdentificacion(@Param("identificacion") Integer identificacion);
+    void deleteByIdentificacion(@Param("identificacion") Long identificacion);
 
-    Optional<Persona> findByIdentificacion(Integer identificacion);
+    Optional<Persona> findByIdentificacion(Long identificacion);
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IFacturaService {
 
-    List<Factura> findFacturasByPersona(Integer idCliente);
+    List<Factura> findFacturasByPersona(Long idCliente);
 
     Factura storeFactura(Factura factura);
 }

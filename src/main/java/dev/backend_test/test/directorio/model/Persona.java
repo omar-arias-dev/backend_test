@@ -10,8 +10,9 @@ import java.util.List;
 public class Persona {
 
     @Id
+    @Column(columnDefinition = "serial")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nombre;
 
@@ -29,7 +30,16 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellidoPaterno, String apellidoMaterno, Integer identificacion, List<Factura> facturas) {
+    public Persona(Long id) {
+        super();
+        this.id = id;
+    }
+
+    public Persona(List<Factura> facturas) {
+        this.facturas = facturas;
+    }
+
+    public Persona(Long id, String nombre, String apellidoPaterno, String apellidoMaterno, Integer identificacion, List<Factura> facturas) {
         super();
         this.id = id;
         this.nombre = nombre;
@@ -39,11 +49,11 @@ public class Persona {
         this.facturas = facturas;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

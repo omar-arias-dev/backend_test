@@ -15,7 +15,7 @@ public class Directorio implements IPersonaService {
     private PersonaRepository personaRepository;
 
     @Override
-    public Persona findPersonaByIdentificacion(Integer identificacion) {
+    public Persona findPersonaByIdentificacion(Long identificacion) {
         Optional<Persona> persona = personaRepository.findByIdentificacion(identificacion);
         return persona.orElse(null);
     }
@@ -26,7 +26,7 @@ public class Directorio implements IPersonaService {
     }
 
     @Override
-    public void deletePersonaByIdentificacion(Integer identificacion) {
+    public void deletePersonaByIdentificacion(Long identificacion) {
         personaRepository.deleteByIdentificacion(identificacion);
     }
 

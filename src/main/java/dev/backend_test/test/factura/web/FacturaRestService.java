@@ -18,7 +18,7 @@ public class FacturaRestService {
     private Ventas ventas;
 
     @GetMapping("/find-facturas-by-persona/{idCliente}")
-    public ResponseEntity<List<Factura>> findFacturasByPersona(@PathVariable("idCliente") Integer idCliente) {
+    public ResponseEntity<List<Factura>> findFacturasByPersona(@PathVariable("idCliente") Long idCliente) {
         return new ResponseEntity<>(ventas.findFacturasByPersona(idCliente), HttpStatus.OK);
     }
 
